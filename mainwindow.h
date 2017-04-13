@@ -3,13 +3,14 @@
 
 #include "ui_mainwindow.h"
 #include "mainwindow.h"
+#include <QMainWindow>
 
 namespace Ui {
     class Calendar;
 };
 
 
-class Calendar : public QDialog
+class Calendar : public QMainWindow
 {
     Q_OBJECT
 

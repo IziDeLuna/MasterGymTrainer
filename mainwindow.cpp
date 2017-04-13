@@ -2,23 +2,25 @@
 #include <QDate>
 #include <QApplication>
 #include <QMessageBox>
+#include <iostream>
+#include <QMainWindow>
+#include <QDialog>
 
 #include "mainwindow.h"
 
-Calendar::Calendar(QWidget *parent) : QDialog(parent) {
- ui.setupUi(this);
- setWindowFlags(Qt::FramelessWindowHint);
- ui.calendarWidget->setNavigationBarVisible(false);
- ui.calendarWidget->setHorizontalHeaderFormat(QCalendarWidget::SingleLetterDayNames);
- ui.calendarWidget->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
-
+Calendar::Calendar(QWidget *parent) : QMainWindow(parent) {
+    //ui(new Ui::Calendar) {
+        ui.setupUi(this);
+        setWindowFlags(Qt::FramelessWindowHint);
+        ui.calendarWidget->setNavigationBarVisible(false);
+        ui.calendarWidget->setHorizontalHeaderFormat(QCalendarWidget::SingleLetterDayNames);
+        ui.calendarWidget->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
+    //}
 // QObject::connect(ui.yearBackButton,SIGNAL (clicked()),this,SLOT (on_yearBackButton_clicked()));
 // QObject::connect(ui.yearFrontButton,SIGNAL (clicked()),this,SLOT (on_yearFrontButton_clicked()));
- QObject::connect(ui.MonthBackButton,SIGNAL (clicked()),this,SLOT (on_MonthBackButton_clicked()));
- QObject::connect(ui.MonthFrontButton,SIGNAL (clicked()),this,SLOT (on_MonthFrontButton_clicked()));
-
+    QObject::connect(ui.MonthBackButton,SIGNAL (clicked()),this,SLOT (on_MonthBackButton_clicked()));
+    QObject::connect(ui.MonthFrontButton,SIGNAL (clicked()),this,SLOT (on_MonthFrontButton_clicked()));
 //QObject::connect(ui.OkButton,SIGNAL (clicked()),this,SLOT (on_OkButton_clicked()));
-
 }
 
 QDate Calendar::currentDate() const {
@@ -46,10 +48,8 @@ QDate Calendar::getdate ()
  int ret = showDateMessage.exec();
  if(ret == QMessageBox::Ok)
  {
-
- accept();
- return ui.calendarWidget->selectedDate();
-
+    //accept();
+    return ui.calendarWidget->selectedDate();
 }
  else
  {
