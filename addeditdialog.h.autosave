@@ -17,7 +17,8 @@ public:
 
 private:
     Ui::AddEditDialog *ui;
-    on_
+    void on_cancelButton_clicked();
+    void on_addCustButton_clicked();
 };
 
 #endif // ADDEDITDIALOG_H
