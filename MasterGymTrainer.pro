@@ -35,5 +35,4 @@ FORMS    += \
     mainwindow.ui \
     loginform.ui
 
-DISTFILES += \
-    MainPageForm.ui.qml
+DISTFILES +=

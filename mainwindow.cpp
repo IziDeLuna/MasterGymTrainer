@@ -47,7 +47,7 @@ QDate Calendar::getdate ()
  if(ret == QMessageBox::Ok)
  {
 
-accept();
+ accept();
  return ui.calendarWidget->selectedDate();
 
 }
@@ -87,3 +87,8 @@ void Calendar::on_OkButton_clicked()
 {
  getdate();
 }
+
+//Calendar::~Calendar() {
+//    delete ui;
+//}
+
