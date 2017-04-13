@@ -5,9 +5,7 @@
 
 #include "mainwindow.h"
 
-Calendar::Calendar(QWidget *parent) :
- QDialog(parent)
-{
+Calendar::Calendar(QWidget *parent) : QDialog(parent) {
  ui.setupUi(this);
  setWindowFlags(Qt::FramelessWindowHint);
  ui.calendarWidget->setNavigationBarVisible(false);
@@ -85,7 +83,7 @@ void Calendar::on_MonthBackButton_clicked()
  setCurrentDate(date);
 }
 
-//void Calendar::on_OkButton_clicked()
-//{
-// getdate();
-//}
+void Calendar::on_OkButton_clicked()
+{
+ getdate();
+}

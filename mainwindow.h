@@ -1,11 +1,11 @@
-#ifndef CALENDARDIALOG_H
-#define CALENDARDIALOG_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
-#include "ui_calendardiag.h"
+#include "ui_mainwindow.h"
 
-namespace Ui {
-    class Calendar;
-};
+//namespace Ui {
+//    class Calendar;
+//};
 
 
 class Calendar : public QDialog
@@ -15,7 +15,7 @@ class Calendar : public QDialog
 public:
  explicit Calendar(QWidget *parent = 0);
  private:
- Ui::calendardiag ui;
+ Ui::MainWindow ui;
 
 private:
  QDate getdate();
@@ -34,4 +34,4 @@ void on_MonthFrontButton_clicked();
 void on_OkButton_clicked();
 };
 
-#endif // CALENDARDIALOG_H
+#endif // MAINWINDOW_H

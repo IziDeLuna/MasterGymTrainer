@@ -22,8 +22,10 @@ void loginform::on_pushButton_Login_clicked()
 
     //Need to pass this into database to retrieve login and password information
     if(username == "admin" && password == "admin") {
-        mainWindow = new Calendar(this);
-        mainWindow->show();
+//        mainWindow = new Calendar(this);
+//        mainWindow->show();
+        Calendar w;
+        w.show();
     }
     else {
         QMessageBox::warning(this, "Login", "Incorrect username and/or password");
