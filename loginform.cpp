@@ -22,6 +22,7 @@ void loginform::on_pushButton_Login_clicked()
 
     //Need to pass this into database to retrieve login and password information
     if(username == "admin" && password == "admin") {
+        close();
         mainWindow = new Calendar();
         mainWindow->show();
 //        Calendar w;

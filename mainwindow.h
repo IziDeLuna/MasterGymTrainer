@@ -30,6 +30,7 @@ private slots:
 
     void on_MonthFrontButton_clicked();
     void on_MonthBackButton_clicked();
+    void on_exitButton_clicked();
 
 //void on_yearBackButton_clicked();
 // void on_yearFrontButton_clicked();
