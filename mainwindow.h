@@ -4,6 +4,7 @@
 #include "ui_mainwindow.h"
 #include "mainwindow.h"
 #include <QMainWindow>
+#include "addeditdialog.h"
 
 namespace Ui {
     class Calendar;
@@ -16,7 +17,6 @@ class Calendar : public QMainWindow
 
 public:
     explicit Calendar(QWidget *parent = 0);
-    //~Calendar();
     private:
     Ui::MainWindow ui;
 
@@ -25,17 +25,15 @@ private:
     QDate currentDate() const;
     void setCurrentDate(const QDate &d);
     void on_calendar_clicked(const QDate &date);
+    AddEditDialog *addeditdialog;
 
 private slots:
 
     void on_MonthFrontButton_clicked();
     void on_MonthBackButton_clicked();
     void on_exitButton_clicked();
-
-//void on_yearBackButton_clicked();
-// void on_yearFrontButton_clicked();
-
-void on_OkButton_clicked();
+    void on_AddButton_clicked();
+    void on_OkButton_clicked();
 };
 
 #endif // MAINWINDOW_H

@@ -102,7 +102,7 @@
      <string>Exit</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="AddEditButton">
+   <widget class="QPushButton" name="AddButton">
     <property name="geometry">
      <rect>
       <x>880</x>
@@ -112,7 +112,8 @@
      </rect>
     </property>
     <property name="text">
-     <string>Add/Edit User</string>
+     <string>Add New 
+Customer</string>
     </property>
    </widget>
   </widget>
