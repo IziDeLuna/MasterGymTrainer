@@ -7,6 +7,7 @@
 #include <QDialog>
 
 #include "mainwindow.h"
+#include "trainerdialog.h"
 #include "addeditdialog.h"
 
 
@@ -83,13 +84,8 @@ void Calendar::on_AddButton_clicked() {
     addeditdialog->show();
 }
 
-
-
-
-
-
-
-
-
-
-
+void Calendar::on_trainerButton_clicked()
+{
+    addtrainerdialog = new TrainerDialog(this);
+    addtrainerdialog->show();
+}

@@ -26,16 +26,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
     mainwindow.cpp \
     loginform.cpp \
-    addeditdialog.cpp
+    addeditdialog.cpp \
+    trainerdialog.cpp
 
 HEADERS  += \
     mainwindow.h \
     loginform.h \
-    addeditdialog.h
+    addeditdialog.h \
+    trainerdialog.h
 
 FORMS    += \
     mainwindow.ui \
     loginform.ui \
-    addeditdialog.ui
+    addeditdialog.ui \
+    trainerdialog.ui
 
 DISTFILES +=

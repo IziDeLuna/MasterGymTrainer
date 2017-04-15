@@ -119,10 +119,10 @@ Member</string>
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>320</x>
       <y>100</y>
-      <width>671</width>
-      <height>621</height>
+      <width>711</width>
+      <height>661</height>
      </rect>
     </property>
     <attribute name="verticalHeaderMinimumSectionSize">
@@ -223,6 +223,20 @@ Member</string>
       <string>5:00</string>
      </property>
     </row>
+   </widget>
+   <widget class="QPushButton" name="trainerButton">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>10</y>
+      <width>80</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add New
+Trainer</string>
+    </property>
    </widget>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
