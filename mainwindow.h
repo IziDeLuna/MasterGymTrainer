@@ -6,6 +6,7 @@
 #include <QMainWindow>
 #include "addeditdialog.h"
 #include "trainerdialog.h"
+#include "addemployeedialog.h"
 
 namespace Ui {
     class Calendar;
@@ -28,6 +29,7 @@ private:
     void on_calendar_clicked(const QDate &date);
     AddEditDialog *addeditdialog;
     TrainerDialog *addtrainerdialog;
+    addEmployeeDialog *addemployeedialog;
 
 private slots:
 
@@ -37,6 +39,7 @@ private slots:
     void on_AddButton_clicked();
     void on_OkButton_clicked();
     void on_trainerButton_clicked();
+    void on_frontButton_clicked();
 };
 
 #endif // MAINWINDOW_H

@@ -89,3 +89,9 @@ void Calendar::on_trainerButton_clicked()
     addtrainerdialog = new TrainerDialog(this);
     addtrainerdialog->show();
 }
+
+void Calendar::on_frontButton_clicked()
+{
+    addemployeedialog = new addEmployeeDialog(this);
+    addemployeedialog->show();
+}

@@ -92,9 +92,9 @@
    <widget class="QPushButton" name="exitButton">
     <property name="geometry">
      <rect>
-      <x>960</x>
+      <x>950</x>
       <y>10</y>
-      <width>71</width>
+      <width>81</width>
       <height>71</height>
      </rect>
     </property>
@@ -105,9 +105,9 @@
    <widget class="QPushButton" name="AddButton">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>850</x>
       <y>10</y>
-      <width>71</width>
+      <width>81</width>
       <height>71</height>
      </rect>
     </property>
@@ -227,7 +227,7 @@ Member</string>
    <widget class="QPushButton" name="trainerButton">
     <property name="geometry">
      <rect>
-      <x>790</x>
+      <x>750</x>
       <y>10</y>
       <width>80</width>
       <height>71</height>
@@ -236,6 +236,20 @@ Member</string>
     <property name="text">
      <string>Add New
 Trainer</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="frontButton">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>10</y>
+      <width>80</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add New
+Employee</string>
     </property>
    </widget>
   </widget>

@@ -27,18 +27,21 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     loginform.cpp \
     addeditdialog.cpp \
-    trainerdialog.cpp
+    trainerdialog.cpp \
+    addemployeedialog.cpp
 
 HEADERS  += \
     mainwindow.h \
     loginform.h \
     addeditdialog.h \
-    trainerdialog.h
+    trainerdialog.h \
+    addemployeedialog.h
 
 FORMS    += \
     mainwindow.ui \
     loginform.ui \
     addeditdialog.ui \
-    trainerdialog.ui
+    trainerdialog.ui \
+    addemployeedialog.ui
 
 DISTFILES +=
