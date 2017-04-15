@@ -18,6 +18,7 @@ loginform::~loginform()
 void loginform::on_pushButton_Login_clicked()
 {
     QString username = ui->lineEdit_username->text();
+    //Needs code here to hide password from others being able to see it
     QString password = ui->lineEdit_password->text();
 
     //Need to pass this into database to retrieve login and password information
@@ -25,8 +26,6 @@ void loginform::on_pushButton_Login_clicked()
         close();
         mainWindow = new Calendar();
         mainWindow->show();
-//        Calendar w;
-//        w.show();
     }
     else {
         QMessageBox::warning(this, "Login", "Incorrect username and/or password");

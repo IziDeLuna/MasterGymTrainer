@@ -9,9 +9,14 @@
 #include "mainwindow.h"
 #include "addeditdialog.h"
 
+
+//The main function call for this calendar
 Calendar::Calendar(QWidget *parent) : QMainWindow(parent) {
+    //ui gets set up
     ui.setupUi(this);
-    //setWindowFlags(Qt::FramelessWindowHint);
+
+
+    //Calendar widget and signal/listener functions started
     ui.calendarWidget->setNavigationBarVisible(false);
     ui.calendarWidget->setHorizontalHeaderFormat(QCalendarWidget::SingleLetterDayNames);
     ui.calendarWidget->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
@@ -23,6 +28,7 @@ Calendar::Calendar(QWidget *parent) : QMainWindow(parent) {
 QDate Calendar::currentDate() const {
     return ui.calendarWidget->selectedDate();
 }
+
 void Calendar::setCurrentDate(const QDate &d) {
     QDate date = d;
     if (!date.isValid())
@@ -31,7 +37,8 @@ void Calendar::setCurrentDate(const QDate &d) {
     ui.calendarWidget->showSelectedDate();
     on_calendar_clicked(date);
 }
-
+//Should be updating datelabel, but waits for listener instead on the widget from
+//get date
 void Calendar::on_calendar_clicked(const QDate &date) {
     ui.DateLabel->setText(date.toString("dd MMMM yyyy"));
 }
@@ -41,23 +48,20 @@ QDate Calendar::getdate () {
     QMessageBox showDateMessage(QMessageBox::Warning, ui.calendarWidget->selectedDate().toString("dd MMMM yyyy"),"",QMessageBox::Ok,0);
     ui.DateLabel->setText(ui.calendarWidget->selectedDate().toString("dd MMMM yyyy"));
     showDateMessage.setText("Date Selected is "+ui.calendarWidget->selectedDate().toString("dd MMMM yyyy"));
-//    int ret = showDateMessage.exec();
-//    if(ret == QMessageBox::Ok) {
-//        return ui.calendarWidget->selectedDate();s
-//    }
-//    else {
-//        return QDate();
-//    }
+    return QDate();
 }
 
 
+//Need to update to move forward only 1 month,
+//Curently moves two
 void Calendar::on_MonthFrontButton_clicked() {
     int iterator = 1;
     QDate date = currentDate();
     date = date.addMonths(iterator);
     setCurrentDate(date);
 }
-
+//Same as month forward, needs updated to do only 1 month at
+//a time
 void Calendar::on_MonthBackButton_clicked() {
     int subIterator = -1;
     QDate date = currentDate();
@@ -72,7 +76,8 @@ void Calendar::on_OkButton_clicked() {
 void Calendar::on_exitButton_clicked() {
     close();
 }
-
+//Calls Add New Member box,
+//i.e. ---->addeditdialog
 void Calendar::on_AddButton_clicked() {
     addeditdialog = new AddEditDialog(this);
     addeditdialog->show();
