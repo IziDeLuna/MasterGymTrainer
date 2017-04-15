@@ -6,6 +6,7 @@ TrainerDialog::TrainerDialog(QWidget *parent) :
     ui(new Ui::TrainerDialog)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Add a new Trainer");
 }
 
 TrainerDialog::~TrainerDialog()

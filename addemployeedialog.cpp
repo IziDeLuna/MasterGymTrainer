@@ -6,6 +6,7 @@ addEmployeeDialog::addEmployeeDialog(QWidget *parent) :
     ui(new Ui::addEmployeeDialog)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Add a new Employee");
 }
 
 addEmployeeDialog::~addEmployeeDialog()

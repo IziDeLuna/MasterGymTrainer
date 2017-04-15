@@ -5,6 +5,7 @@
 //Basic constructor
 AddEditDialog::AddEditDialog(QWidget *parent) : QDialog(parent), ui(new Ui::AddEditDialog) {
     ui->setupUi(this);
+    this->setWindowTitle("Add a new Client");
 }
 
 //Destructor for the dialog

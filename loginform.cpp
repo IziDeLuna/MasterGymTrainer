@@ -8,6 +8,7 @@ loginform::loginform(QWidget *parent) :
     ui(new Ui::loginform)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Login");
 }
 
 loginform::~loginform()

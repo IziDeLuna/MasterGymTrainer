@@ -15,7 +15,7 @@
 Calendar::Calendar(QWidget *parent) : QMainWindow(parent) {
     //ui gets set up
     ui.setupUi(this);
-
+    this->setWindowTitle("MasterGymTrainer");
 
     //Calendar widget and signal/listener functions started
     ui.calendarWidget->setNavigationBarVisible(false);
