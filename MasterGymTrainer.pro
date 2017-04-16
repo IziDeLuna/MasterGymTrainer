@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui \
+          sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,14 +29,16 @@ SOURCES += main.cpp\
     loginform.cpp \
     addeditdialog.cpp \
     trainerdialog.cpp \
-    addemployeedialog.cpp
+    addemployeedialog.cpp \
+    dbmanager.cpp
 
 HEADERS  += \
     mainwindow.h \
     loginform.h \
     addeditdialog.h \
     trainerdialog.h \
-    addemployeedialog.h
+    addemployeedialog.h \
+    dbmanager.h
 
 FORMS    += \
     mainwindow.ui \
@@ -45,3 +48,5 @@ FORMS    += \
     addemployeedialog.ui
 
 DISTFILES +=
+
+
