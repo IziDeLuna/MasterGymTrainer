@@ -45,8 +45,6 @@ void loginform::on_pushButton_Login_clicked()
     }
 
     QSqlQuery qry;
-    //QSqlQuery *query = new QSqlQuery(db);
-    //QSqlQuery *qry = new QSqlQuery(mydb);
     if (qry.exec("SELECT * FROM userlogin WHERE username = '"+username+"' AND password = '"+password+"'")) {
         int count = 0;
         while (qry.next()) {
