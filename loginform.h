@@ -2,6 +2,8 @@
 #define LOGINFORM_H
 
 #include <QDialog>
+#include <QtCore/QString>
+#include <QtSql/QSqlDatabase>
 #include "mainwindow.h"
 
 namespace Ui {
@@ -19,12 +21,12 @@ public:
 private slots:
     void on_pushButton_Login_clicked();
 
+    void on_exitButton_clicked();
+
 private:
     Ui::loginform *ui;
-    //pointer for main window to open
-    //MainWindow *mainWindow;
+    QSqlDatabase *mydb = new(QSqlDatabase);
     Calendar *mainWindow;
-    //w.show();
 };
 
 #endif // LOGINFORM_H
