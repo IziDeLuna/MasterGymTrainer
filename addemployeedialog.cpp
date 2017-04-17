@@ -37,7 +37,7 @@ void addEmployeeDialog::on_cancelButton_clicked()
 void addEmployeeDialog::on_addEmployeeButton_clicked()
 {
     int eid = 0;
-    int level = 3;
+    int level = 2;
     QString firstname = ui->firstNameBox->text();
     QString lastname = ui->lastNameBox->text();
     QString username = ui->usernameBox->text();
@@ -52,15 +52,17 @@ void addEmployeeDialog::on_addEmployeeButton_clicked()
     //increment eid to store new employee
     eid = eid + 1;
 
-    //Add to employee table, does not account for duplicates yet
+    //Add to employee table
     emQry.prepare("INSERT INTO employee (eid,firstname,lastname)"
                    "VALUES (:eid,:firstname,:lastname)");
     emQry.bindValue(":eid",eid);
     emQry.bindValue(":firstname",firstname);
     emQry.bindValue(":lastname", lastname);
 
+    //emQry fails if duplicate, so this is duplicate detecting code for now
     if(!emQry.exec()){
         qDebug() << "Did not insert into table employee";
+        QMessageBox::warning(this, "Warning", "Possible duplicate in employee database");
     }
 
     //Add to userlogin table, does not account for duplicates yet
@@ -70,8 +72,9 @@ void addEmployeeDialog::on_addEmployeeButton_clicked()
     emQry.bindValue(":username",username);
     emQry.bindValue(":password",password);
     emQry.bindValue(":level",level);
-    if(!emQry.exec())
+    if(!emQry.exec()){
         qDebug() << "Did not insert into table userlogin";
-
+        QMessageBox::warning(this, "Warning", "Possible duplicate in username database");
+    }
     close();
 }
