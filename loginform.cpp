@@ -16,14 +16,16 @@ loginform::loginform(QWidget *parent) : QDialog(parent), ui(new Ui::loginform) {
     this->setWindowTitle("Login");
     //Opening up database for user login "QSQLITE",, , "QSQLITE"
     *mydb = QSqlDatabase::addDatabase("QSQLITE");
-    mydb->setDatabaseName("/Users/ismaeldeluna/MasterGymTrainer/userlogin.db");
+    mydb->setDatabaseName("/Users/James/Github/MasterGymTrainer/userlogin.db");
 
     //Checking to see if database will open up or not
     if (!mydb->open()) {
-        QMessageBox::warning(this, "Database", "Failed to open database");
+        //QMessageBox::warning(this, "Database", "Failed to open database");
+        qDebug() << "Failed to open database";
     }
     else {
-        QMessageBox::warning(this, "Database", "Opened database successfully");
+        //QMessageBox::warning(this, "Database", "Opened database successfully");
+        qDebug() << "Opened database successfully";
     }
 }
 
@@ -51,7 +53,8 @@ void loginform::on_pushButton_Login_clicked()
             count++;
         }
         if (count == 1) {
-            QMessageBox::warning(this, "Login", "Username and Password is correct");
+            //QMessageBox::warning(this, "Login", "Username and Password is correct");
+            qDebug() << "Username and Password is correct";
             close();
             mainWindow = new Calendar();
             mainWindow->show();
