@@ -3,6 +3,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include <string>
+#include <QMessageBox>
 
 /*
 #include <QStandardPaths>
