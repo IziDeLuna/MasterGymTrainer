@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     addeditdialog.cpp \
     trainerdialog.cpp \
     addemployeedialog.cpp \
-    dbmanager.cpp
+    dbmanager.cpp \
+    appointmentdialog.cpp
 
 HEADERS  += \
     mainwindow.h \
@@ -37,14 +38,16 @@ HEADERS  += \
     addeditdialog.h \
     trainerdialog.h \
     addemployeedialog.h \
-    dbmanager.h
+    dbmanager.h \
+    appointmentdialog.h
 
 FORMS    += \
     mainwindow.ui \
     loginform.ui \
     addeditdialog.ui \
     trainerdialog.ui \
-    addemployeedialog.ui
+    addemployeedialog.ui \
+    appointmentdialog.ui
 
 DISTFILES +=
 

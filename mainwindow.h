@@ -27,7 +27,6 @@ public:
     //Setting username
     QString getUserName() { return username; }
     void setusername(const QString login) {username = login; }
-    //void nopermission();
 
 private:
     QDate getdate();
@@ -51,6 +50,7 @@ private slots:
     void on_OkButton_clicked();
     void on_trainerButton_clicked();
     void on_frontButton_clicked();
+    void on_schdeuleAppt_clicked();
 };
 
 #endif // MAINWINDOW_H

@@ -8,6 +8,8 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QDebug>
+#include <QSqlQueryModel>
+#include <QListWidget>
 
 #include "mainwindow.h"
 #include "trainerdialog.h"
@@ -63,6 +65,28 @@ QDate Calendar::getdate () {
     QMessageBox showDateMessage(QMessageBox::Warning, ui.calendarWidget->selectedDate().toString("dd MMMM yyyy"),"",QMessageBox::Ok,0);
     ui.DateLabel->setText(ui.calendarWidget->selectedDate().toString("dd MMMM yyyy"));
     showDateMessage.setText("Date Selected is "+ui.calendarWidget->selectedDate().toString("dd MMMM yyyy"));
+
+    QSqlQueryModel * modal = new QSqlQueryModel();
+    QSqlQuery uqry;
+    QString username = getUserName();
+
+//    uqry.prepare("SELECT T.firstname FROM userlogin U, trainer T, customer C, appdate A WHERE U.username = '"+username+"' AND U.eid = T.eid");
+//    uqry.exec();
+//    //modal->setQuery(uqry);
+//    //ui.tableWidget->setModel(modal);
+//    QListWidget *apptList = new QListWidget(this);
+//    while(uqry.next()) {
+//        QListWidgetItem *newItem = new QListWidgetItem;
+//        QString trainee;
+//        QDate date;
+
+//    }
+
+
+//    login = qry.value(0).toString();
+//    newItem->setText(itemText);
+//    apptList->insertItem(row, newItem);
+
     return QDate();
 }
 
@@ -127,3 +151,9 @@ void Calendar::on_frontButton_clicked()
     }
 
 }
+
+void Calendar::on_schdeuleAppt_clicked()
+{
+
+}
+
