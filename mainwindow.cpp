@@ -66,21 +66,28 @@ QDate Calendar::getdate () {
     ui.DateLabel->setText(ui.calendarWidget->selectedDate().toString("dd MMMM yyyy"));
     showDateMessage.setText("Date Selected is "+ui.calendarWidget->selectedDate().toString("dd MMMM yyyy"));
 
-    QSqlQueryModel * modal = new QSqlQueryModel();
+    //QSqlQueryModel * modal = new QSqlQueryModel();
     QSqlQuery uqry;
     QString username = getUserName();
+    QString trainee;
+    QString date;
+    QString combined;
+    int row = 0;
 
-//    uqry.prepare("SELECT T.firstname FROM userlogin U, trainer T, customer C, appdate A WHERE U.username = '"+username+"' AND U.eid = T.eid");
-//    uqry.exec();
-//    //modal->setQuery(uqry);
-//    //ui.tableWidget->setModel(modal);
-//    QListWidget *apptList = new QListWidget(this);
-//    while(uqry.next()) {
-//        QListWidgetItem *newItem = new QListWidgetItem;
-//        QString trainee;
-//        QDate date;
-
-//    }
+    uqry.prepare("SELECT C.firstname FROM userlogin U, customer C, appdate A WHERE U.username = '"+username+"' AND U.eid = A.eid AND A.cid = C.cid");
+    uqry.exec();
+    //modal->setQuery(uqry);
+    //ui.tableWidget->setModel(modal);
+    //QListWidget *apptList = new QListWidget(this);
+    while(uqry.next()) {
+        QListWidgetItem *newItem = new QListWidgetItem;
+        trainee = uqry.value(0).toString();
+        //date = uqry.value(1).toString();
+        //combined = trainee + " " + date;
+        newItem->setText(trainee);
+        ui.apptList->insertItem(row, newItem);
+        row++;
+    }
 
 
 //    login = qry.value(0).toString();

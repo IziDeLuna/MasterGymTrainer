@@ -7,6 +7,8 @@
 #include "addeditdialog.h"
 #include "trainerdialog.h"
 #include "addemployeedialog.h"
+#include <QListWidget>
+#include <QListWidgetItem>
 
 namespace Ui {
     class Calendar;
@@ -27,6 +29,9 @@ public:
     //Setting username
     QString getUserName() { return username; }
     void setusername(const QString login) {username = login; }
+    //QListWidget
+    QListWidget apptList;
+
 
 private:
     QDate getdate();
