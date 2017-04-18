@@ -11,12 +11,14 @@
 #include <QSqlDatabase>
 #include <QFileInfo>
 
+using namespace std;
+
 loginform::loginform(QWidget *parent) : QDialog(parent), ui(new Ui::loginform) {
     ui->setupUi(this);
     this->setWindowTitle("Login");
     //Opening up database for user login "QSQLITE",, , "QSQLITE"
     *mydb = QSqlDatabase::addDatabase("QSQLITE");
-    mydb->setDatabaseName("/Users/James/Github/MasterGymTrainer/userlogin.db");
+    mydb->setDatabaseName("/Users/ismaeldeluna/MasterGymTrainer/userlogin.db");
 
     //Checking to see if database will open up or not
     if (!mydb->open()) {
@@ -55,8 +57,14 @@ void loginform::on_pushButton_Login_clicked()
         if (count == 1) {
             //QMessageBox::warning(this, "Login", "Username and Password is correct");
             qDebug() << "Username and Password is correct";
+            QString login = "";
+            qry.exec("SELECT username FROM userlogin WHERE username = '"+username+"' AND password = '"+password+"'");
+            if (qry.next()) {
+                login = qry.value(0).toString();
+            }
+            setusername(login);
             close();
-            mainWindow = new Calendar();
+            mainWindow = new Calendar(login, this);
             mainWindow->show();
         }
         if (count > 1) {
@@ -71,5 +79,5 @@ void loginform::on_pushButton_Login_clicked()
 
 void loginform::on_exitButton_clicked()
 {
-    close();
+    hide();
 }

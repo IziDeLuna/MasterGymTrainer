@@ -5,6 +5,9 @@
 #include <iostream>
 #include <QMainWindow>
 #include <QDialog>
+#include <QString>
+#include <QSqlQuery>
+#include <QDebug>
 
 #include "mainwindow.h"
 #include "trainerdialog.h"
@@ -12,10 +15,21 @@
 
 
 //The main function call for this calendar
-Calendar::Calendar(QWidget *parent) : QMainWindow(parent) {
+Calendar::Calendar(const QString &userlogin, QWidget *parent) : QMainWindow(parent), username(userlogin) {
     //ui gets set up
     ui.setupUi(this);
     this->setWindowTitle("MasterGymTrainer");
+    QString username = userlogin;
+    setusername(username);
+    int accesslevel = 0;
+
+    //Query to set accesslevel
+    QSqlQuery uqry;
+    uqry.exec("SELECT level FROM userlogin WHERE username = '"+username+"'");
+    if (uqry.next()) {
+        accesslevel = uqry.value(0).toInt();
+    }
+    setLevel(accesslevel);
 
     //Calendar widget and signal/listener functions started
     ui.calendarWidget->setNavigationBarVisible(false);
@@ -79,19 +93,37 @@ void Calendar::on_exitButton_clicked() {
 }
 //Calls Add New Member box,
 //i.e. ---->addeditdialog
+
 void Calendar::on_AddButton_clicked() {
-    addeditdialog = new AddEditDialog(this);
-    addeditdialog->show();
+    int accesslevel = getLevel();
+    if ((accesslevel == 2) || (accesslevel == 3)) {
+       addeditdialog = new AddEditDialog(this);
+       addeditdialog->show();
+    } else {
+    //do nothing because you don't have permissions
+    }
 }
 
 void Calendar::on_trainerButton_clicked()
 {
-    addtrainerdialog = new TrainerDialog(this);
-    addtrainerdialog->show();
+    int accesslevel = getLevel();
+    if (accesslevel == 3) {
+        addtrainerdialog = new TrainerDialog(this);
+        addtrainerdialog->show();
+    } else {
+    //do nothing because you don't have permissions
+    }
+
 }
 
 void Calendar::on_frontButton_clicked()
 {
-    addemployeedialog = new addEmployeeDialog(this);
-    addemployeedialog->show();
+    int accesslevel = getLevel();
+    if (accesslevel == 3) {
+        addemployeedialog = new addEmployeeDialog(this);
+        addemployeedialog->show();
+    } else {
+    //do nothing because you don't have permissions
+    }
+
 }

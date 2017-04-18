@@ -5,6 +5,9 @@
 #include <QtCore/QString>
 #include <QtSql/QSqlDatabase>
 #include "mainwindow.h"
+#include <QString>
+
+using namespace std;
 
 namespace Ui {
 class loginform;
@@ -17,6 +20,10 @@ class loginform : public QDialog
 public:
     explicit loginform(QWidget *parent = 0);
     ~loginform();
+    QString getUserName() { return userlogin; }
+    void setusername(const QString login) {userlogin = login; }
+
+
 
 private slots:
     void on_pushButton_Login_clicked();
@@ -27,6 +34,7 @@ private:
     Ui::loginform *ui;
     QSqlDatabase *mydb = new(QSqlDatabase);
     Calendar *mainWindow;
+    QString userlogin;
 };
 
 #endif // LOGINFORM_H

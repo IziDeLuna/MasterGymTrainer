@@ -18,9 +18,16 @@ class Calendar : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Calendar(QWidget *parent = 0);
+    explicit Calendar(const QString &userlogin, QWidget *parent = 0);
     private:
     Ui::MainWindow ui;
+    //Setting user level
+    int getLevel() {return level_id;}
+    void setLevel(const int given) {level_id = given;}
+    //Setting username
+    QString getUserName() { return username; }
+    void setusername(const QString login) {username = login; }
+    //void nopermission();
 
 private:
     QDate getdate();
@@ -30,6 +37,10 @@ private:
     AddEditDialog *addeditdialog;
     TrainerDialog *addtrainerdialog;
     addEmployeeDialog *addemployeedialog;
+
+
+    QString username;
+    int level_id;
 
 private slots:
 
