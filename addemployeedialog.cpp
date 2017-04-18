@@ -68,5 +68,8 @@ void addEmployeeDialog::on_addEmployeeButton_clicked()
         qDebug() << "Did not insert into table userlogin";
         QMessageBox::warning(this, "Warning", "Possible duplicate in username database");
     }
+    else{
+        QMessageBox::information(this,"Employee","Employee added successfully!");
+    }
     close();
 }

@@ -68,5 +68,8 @@ void TrainerDialog::on_addTrainerButton_clicked()
         qDebug() << "Did not insert into userlogin";
         QMessageBox::warning(this,"Warning", "Possible duplicate in userlogin database");
     }
+    else{
+        QMessageBox::information(this,"Trainer","Trainer added successfully!");
+    }
     close();
 }
