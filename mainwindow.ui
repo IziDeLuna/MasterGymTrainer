@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>853</width>
-    <height>681</height>
+    <height>712</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -148,10 +148,23 @@ Employee</string>
     <property name="geometry">
      <rect>
       <x>15</x>
-      <y>10</y>
+      <y>130</y>
       <width>381</width>
-      <height>621</height>
+      <height>501</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="logo">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>10</y>
+      <width>131</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

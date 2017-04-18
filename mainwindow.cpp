@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QSqlQueryModel>
 #include <QListWidget>
+#include <QPixmap>
 
 #include "mainwindow.h"
 #include "trainerdialog.h"
@@ -20,6 +21,9 @@
 Calendar::Calendar(const QString &userlogin, QWidget *parent) : QMainWindow(parent), username(userlogin) {
     //ui gets set up
     ui.setupUi(this);
+    QPixmap pix("/Users/ismaeldeluna/MasterGymTrainer/logo.jpg");
+    ui.logo->setPixmap(pix);
+
     this->setWindowTitle("MasterGymTrainer");
     QString username = userlogin;
     setusername(username);
@@ -79,13 +83,13 @@ QDate Calendar::getdate () {
     //modal->setQuery(uqry);
     //ui.tableWidget->setModel(modal);
     //QListWidget *apptList = new QListWidget(this);
-    while(uqry.next()) {
+    if(uqry.next()) {
         QListWidgetItem *newItem = new QListWidgetItem;
         trainee = uqry.value(0).toString();
         //date = uqry.value(1).toString();
         //combined = trainee + " " + date;
         newItem->setText(trainee);
-        ui.apptList->insertItem(row, newItem);
+        ui.apptList->addItem(newItem);
         row++;
     }
 
