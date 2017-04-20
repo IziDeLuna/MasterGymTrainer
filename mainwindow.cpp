@@ -87,6 +87,11 @@ QDate Calendar::getdate () {
     if(!uqry.exec()){
         QMessageBox::warning(this,"Warning","Query did not execute");
     }
+    //Put eid, cid, date, and time
+    QListWidgetItem *newItem = new QListWidgetItem;
+    newItem->setText("EID\tCID\tDate\tTime");
+    ui.apptList->addItem(newItem);
+
     while(uqry.next()) {
         eqry.prepare("SELECT * FROM trainer WHERE eid = :eid");
         eid = uqry.value(0).toInt();
@@ -100,8 +105,14 @@ QDate Calendar::getdate () {
         cqry.exec();
         if(!cqry.exec())
             qDebug() << "Did not get from customer table" << endl;
+
         QListWidgetItem *newItem = new QListWidgetItem;
-        trainee = eqry.value(1).toString() + uqry.value(0).toString() + cqry.value(1).toString();
+
+        //trainee = eqry.value(1).toString() + uqry.value(0).toString() + cqry.value(1).toString();
+
+        //This will display the current database, will only show eid, cid, date, and time
+        trainee =  uqry.value(0).toString() +"\t"+  uqry.value(1).toString() +"\t"+  uqry.value(2).toString() + "\t" +
+                 uqry.value(3).toString();
         newItem->setText(trainee);
         ui.apptList->addItem(newItem);
         row++;
