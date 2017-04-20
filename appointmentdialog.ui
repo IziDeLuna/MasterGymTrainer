@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>40</y>
+     <y>20</y>
      <width>81</width>
      <height>31</height>
     </rect>
@@ -56,7 +56,7 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>90</y>
+     <y>70</y>
      <width>81</width>
      <height>31</height>
     </rect>
@@ -69,20 +69,20 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>140</y>
+     <y>120</y>
      <width>101</width>
      <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string>Appointment Time</string>
+    <string>Appointment Date</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="custIDBox">
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>50</y>
+     <y>30</y>
      <width>251</width>
      <height>21</height>
     </rect>
@@ -92,20 +92,43 @@
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>100</y>
+     <y>80</y>
      <width>251</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="apptBox">
+  <widget class="QLineEdit" name="apptDateBox">
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>150</y>
+     <y>130</y>
      <width>251</width>
      <height>21</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="apptTimeBox">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>180</y>
+     <width>251</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="AppointmentLabel2">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>170</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Appointment Time</string>
    </property>
   </widget>
  </widget>
