@@ -18,7 +18,7 @@ loginform::loginform(QWidget *parent) : QDialog(parent), ui(new Ui::loginform) {
     this->setWindowTitle("Login");
     //Opening up database for user login "QSQLITE",, , "QSQLITE"
     *mydb = QSqlDatabase::addDatabase("QSQLITE");
-    mydb->setDatabaseName("/Users/James/Github/MasterGymTrainer/userlogin.db");
+    mydb->setDatabaseName("/Users/ismaeldeluna/MasterGymTrainer/userlogin.db");
 
     //Checking to see if database will open up or not
     if (!mydb->open()) {

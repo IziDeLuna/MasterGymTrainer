@@ -75,10 +75,13 @@ QDate Calendar::getdate () {
     QSqlQuery uqry,eqry,cqry;
     int eid, cid;
     QString username = getUserName();
+    QString schedule;
     QString trainee;
+    QString trainer;
     QString date;
     QString combined;
     //QListWidgetItem *newItem = new QListWidgetItem;
+    ui.apptList->clear();
     int row = 0;
     date = ui.calendarWidget->selectedDate().toString("MM/dd/yyyy");
     //So far this only works with exact dates, can't figure out how to use date for query
@@ -87,33 +90,39 @@ QDate Calendar::getdate () {
     if(!uqry.exec()){
         QMessageBox::warning(this,"Warning","Query did not execute");
     }
-    //Put eid, cid, date, and time
+    //Put Trainer, Trainee, date, and time
     QListWidgetItem *newItem = new QListWidgetItem;
-    newItem->setText("EID\tCID\tDate\tTime");
+    newItem->setText("Trainer\tTrainee\tDate\tTime");
     ui.apptList->addItem(newItem);
 
     while(uqry.next()) {
-        eqry.prepare("SELECT * FROM trainer WHERE eid = :eid");
-        eid = uqry.value(0).toInt();
-        eqry.bindValue(":eid",eid);
+        eqry.prepare("SELECT firstname FROM trainer WHERE eid = :eid");
+        //eid = uqry.value(0).toInt();
+        eqry.exec();
+        trainer = eqry.value(0).toString();
+        uqry.bindValue(":EID", QVariant(trainer));
         if(!eqry.exec())
             qDebug() << "Did not get from trainer table" << endl;
 
-        cqry.prepare("SELECT * FROM customers WHERE cid = :cid");
-        cid = uqry.value(1).toInt();
-        cqry.bindValue(":cid",cid);
+
+        cqry.prepare("SELECT firstname FROM customers WHERE cid = :cid");
+        //cid = uqry.value(1).toInt();
         cqry.exec();
+        trainee = cqry.value(1).toString();
+        uqry.bindValue(":CID", QVariant(trainee));
+
         if(!cqry.exec())
             qDebug() << "Did not get from customer table" << endl;
+
 
         QListWidgetItem *newItem = new QListWidgetItem;
 
         //trainee = eqry.value(1).toString() + uqry.value(0).toString() + cqry.value(1).toString();
 
         //This will display the current database, will only show eid, cid, date, and time
-        trainee =  uqry.value(0).toString() +"\t"+  uqry.value(1).toString() +"\t"+  uqry.value(2).toString() + "\t" +
+        schedule =  uqry.value(0).toString() +"\t"+ uqry.value(1).toString()  +"\t"+  uqry.value(2).toString() + "\t" +
                  uqry.value(3).toString();
-        newItem->setText(trainee);
+        newItem->setText(schedule);
         ui.apptList->addItem(newItem);
         row++;
     }
