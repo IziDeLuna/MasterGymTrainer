@@ -12,3 +12,11 @@ appointmentDialog::~appointmentDialog()
 {
     delete ui;
 }
+
+void appointmentDialog::on_cancelButton_clicked(){
+    close();
+}
+
+void appointmentDialog::on_addApptButton_clicked(){
+
+}

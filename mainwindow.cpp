@@ -15,6 +15,7 @@
 #include "mainwindow.h"
 #include "trainerdialog.h"
 #include "addeditdialog.h"
+#include "appointmentdialog.h"
 
 
 //The main function call for this calendar
@@ -165,6 +166,9 @@ void Calendar::on_frontButton_clicked()
 
 void Calendar::on_schdeuleAppt_clicked()
 {
+    //FIXME: Add access level code
+    appointmentdialog = new appointmentDialog(this);
+    appointmentdialog->show();
 
 }
 

@@ -7,6 +7,7 @@
 #include "addeditdialog.h"
 #include "trainerdialog.h"
 #include "addemployeedialog.h"
+#include "appointmentdialog.h"
 #include <QListWidget>
 #include <QListWidgetItem>
 
@@ -41,6 +42,7 @@ private:
     AddEditDialog *addeditdialog;
     TrainerDialog *addtrainerdialog;
     addEmployeeDialog *addemployeedialog;
+    appointmentDialog *appointmentdialog;
 
 
     QString username;
