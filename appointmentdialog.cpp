@@ -25,16 +25,17 @@ void appointmentDialog::on_addApptButton_clicked(){
     QString eid = ui->employIDBox->text();
     QString date = ui->apptDateBox->text();
     QString time = ui->apptTimeBox->text();
-    QString datetime = date + " " + time;
+    //QString datetime = date + " " + time;
     QSqlQuery qry;
 
-    //Add to table
-    qry.prepare("INSERT INTO appt (eid,cid,appdate)"
-                "VALUES (:eid,:cid,:appdate)");
+    //Add to appt table
+    qry.prepare("INSERT INTO appt (eid,cid,date,time)"
+                "VALUES (:eid,:cid,:date,:time)");
     qry.bindValue(":eid",eid);
     qry.bindValue(":cid",cid);
     //need to find out how to query datetime
-    qry.bindValue(":appdate",datetime);
+    qry.bindValue(":date",date);
+    qry.bindValue(":time",time);
 
     //qry.bindValue(":appdate",date + "/2017 " + time);
 

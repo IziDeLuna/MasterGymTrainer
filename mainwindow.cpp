@@ -72,13 +72,42 @@ QDate Calendar::getdate () {
     showDateMessage.setText("Date Selected is "+ui.calendarWidget->selectedDate().toString("dd MMMM yyyy"));
 
     //QSqlQueryModel * modal = new QSqlQueryModel();
-    QSqlQuery uqry;
+    QSqlQuery uqry,eqry,cqry;
+    int eid, cid;
     QString username = getUserName();
     QString trainee;
     QString date;
     QString combined;
+    //QListWidgetItem *newItem = new QListWidgetItem;
     int row = 0;
+    date = ui.calendarWidget->selectedDate().toString("MM/dd/yyyy");
+    //So far this only works with exact dates, can't figure out how to use date for query
+    uqry.prepare("SELECT * FROM appt WHERE date = '4/17/2017'");
+    //uqry.bindValue(":dat",date);
+    if(!uqry.exec()){
+        QMessageBox::warning(this,"Warning","Query did not execute");
+    }
+    while(uqry.next()) {
+        eqry.prepare("SELECT * FROM trainer WHERE eid = :eid");
+        eid = uqry.value(0).toInt();
+        eqry.bindValue(":eid",eid);
+        if(!eqry.exec())
+            qDebug() << "Did not get from trainer table" << endl;
 
+        cqry.prepare("SELECT * FROM customers WHERE cid = :cid");
+        cid = uqry.value(1).toInt();
+        cqry.bindValue(":cid",cid);
+        cqry.exec();
+        if(!cqry.exec())
+            qDebug() << "Did not get from customer table" << endl;
+        QListWidgetItem *newItem = new QListWidgetItem;
+        trainee = eqry.value(1).toString() + uqry.value(0).toString() + cqry.value(1).toString();
+        newItem->setText(trainee);
+        ui.apptList->addItem(newItem);
+        row++;
+    }
+
+    /*
     uqry.prepare("SELECT C.firstname FROM userlogin U, customer C, appdate A WHERE U.username = '"+username+"' AND U.eid = A.eid AND A.cid = C.cid");
     uqry.exec();
     //modal->setQuery(uqry);
@@ -92,7 +121,8 @@ QDate Calendar::getdate () {
         newItem->setText(trainee);
         ui.apptList->addItem(newItem);
         row++;
-    }
+    }*/
+
 
 
 //    login = qry.value(0).toString();
